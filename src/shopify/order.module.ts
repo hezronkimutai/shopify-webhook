@@ -11,28 +11,12 @@ import { Product } from './product.entity';
 
 @Module({
   imports: [
-    
-
-  TypeOrmModule.forRoot({
-    type: 'postgres',
-    host: 'localhost',
-    port: 5432,
-    username: 'postgres',
-    password: 'postgres',
-    database: 'mydatabase',
-    entities: [Order,Product],
-    synchronize: true,
-  }),TypeOrmModule.forFeature([Order,Product])],
-  exports: [OrdersService, TypeOrmModule.forFeature([Order,Product])],
+    TypeOrmModule.forFeature([Order,Product])],
+  exports: [OrdersService],
 
   providers: [OrdersService],
   controllers: [OrdersController],
-  // exports: [OrdersService]
 })
 export class ShopifyModule {
-  // @InjectRepository(Order)
-
-  // private readonly orderRepository: Repository<Order>
 }
 
-  // imports: [ItemsModule]
